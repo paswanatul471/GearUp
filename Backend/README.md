@@ -51,3 +51,50 @@ Returns an array of validation errors:
   ]
 }
 ```
+
+POST /users/login
+
+### Request Body
+
+```json
+{
+  "email": "string (must be a valid email)",
+  "password": "string (min length = 3)"
+}
+
+
+Example Responses
+200 OK
+
+{
+  "token": "string",
+  "user": {
+    "_id": "string",
+    "fullname": {
+      "firstname": "string",
+      "lastname": "string"
+    },
+    "email": "string"
+  }
+}
+
+
+400 Bad Request
+
+{
+  "error": [
+    {
+      "msg": "Invalid email",
+      "param": "email"
+    }
+  ]
+}
+
+401 Unauthorized
+
+{
+  "message": "Invalid email or password"
+}
+
+
+```
